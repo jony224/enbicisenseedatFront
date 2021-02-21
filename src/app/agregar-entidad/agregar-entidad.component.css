@@ -1,0 +1,15 @@
+mat-form-field{
+    width:100%
+}
+button{
+    float:right;
+    width: 200px;
+}
+
+.asterisco{
+    color: red;
+}
+
+.paddingBottom{
+    padding-bottom: 30px;
+}

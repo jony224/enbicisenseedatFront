@@ -1,0 +1,99 @@
+<div>
+    <h1 class="paddingBottom">Agregar Paseo</h1>
+    <div class="carta" >
+        <p-card header="Rellena el formulario para crear un paseo." class="contenido" styleClass="p-shadow-10">
+            <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" novalidate>
+                <div>
+                    <label for="time">Fecha y Hora</label>
+                </div>
+                <div class="paddingBottom">
+                    <p-calendar [inputStyle]="{'width' : '510px', 'font-size':'16px'}" [(ngModel)]="date2"
+                        [showTime]="true" inputId="time" formControlName="fecha"></p-calendar>
+                </div>
+                <div>
+                    <label>Punto de recogida del pasajero</label>
+                </div>
+                <div class="paddingBottom">
+                    <input size="60" type="text" pInputText formControlName="recogida" />
+                </div>
+                <div>
+                    <label>Punto de recogida del vehículo</label>
+                </div>
+                <div class="paddingBottom">
+                    <input size="60" type="text" pInputText formControlName="recogidaVehiculo" />
+                </div>
+                <div>
+                    <label>Voluntario (Escoger en la lista)</label>
+                </div>
+                <div class="paddingBottom">
+                    <input *ngIf="selectedVoluntario; else elseBlock" size="60" [disabled]="true" type="text" pInputText
+                        [(ngModel)]="selectedVoluntario.name" formControlName="voluntario">
+                    <ng-template #elseBlock> <input size="60" [disabled]="true" type="text" pInputText
+                            formControlName="voluntario"></ng-template>
+                </div>
+                <div>
+                    <label>Beneficiario (Escoger en la lista)</label>
+                </div>
+                <div class="paddingBottom">
+                    <input *ngIf="selectedBeneficiario; else elseBlock2" size="60" [disabled]="true" type="text"
+                        pInputText [(ngModel)]="selectedBeneficiario.name" formControlName="beneficiario">
+                    <ng-template #elseBlock2><input size="60" [disabled]="true" type="text" pInputText
+                            formControlName="beneficiario"></ng-template>
+                </div>
+                <div>
+                    <label>Vehículo (Escoger en la lista)</label>
+                </div>
+                <div class="paddingBottom">
+                    <input *ngIf="selectedVehiculo; else elseBlock3" size="60" [disabled]="true" type="text" pInputText
+                        [(ngModel)]="selectedVehiculo.code" formControlName="vehiculo">
+                    <ng-template #elseBlock3><input size="60" [disabled]="true" type="text" pInputText
+                            formControlName="vehiculo"></ng-template>
+                </div>
+
+                <div class="paddingBottom">
+                    <button pButton label="Crear Paseo" class="p-button-raised" type="submit"></button>
+
+                </div>
+            </form>
+        </p-card>
+    </div>
+    <div class="listas">
+        <div class="lista">
+            <p-orderList *ngIf="isLoadedVoluntario" [value]="listaVoluntarios" 
+                [listStyle]="{'max-height':'150px'}" header="Lista de Voluntarios" optionLabel="name" filterBy="name"
+                filterPlaceholder="Buscar" [dragdrop]="true" (onSelectionChange)="onSelectionChangeVoluntario($event)">
+                <ng-template let-voluntario pTemplate="item">
+                    <div>
+                        <label>{{voluntario.name}}</label>
+                        <label class="nivel"
+                            [ngStyle]="{'background-color':convertirNivel(voluntario.nivel).color}">{{convertirNivel(voluntario.nivel).nivel}}</label>
+
+                    </div>
+                </ng-template>
+            </p-orderList>
+        </div>
+        <div class="lista">
+            <p-orderList *ngIf="isLoadedBeneficiario" [value]="listaBeneficiarios"
+                [listStyle]="{'max-height':'150px'}" header="Lista de Entidades" optionLabel="name" filterBy="name"
+                filterPlaceholder="Buscar" [dragdrop]="true" (onSelectionChange)="onSelectionChangeEntidad($event)">
+                <ng-template let-beneficiario pTemplate="item">
+                    <div>
+                        <label>{{beneficiario.name}}</label>
+                    </div>
+                </ng-template>
+            </p-orderList>
+        </div>
+        <div class="lista">
+            <p-orderList *ngIf="isLoadedVehiculo" [value]="listaVehiculos" 
+                [listStyle]="{'max-height':'150px'}" header="Lista de Vehículos" optionLabel="estado" filterBy="name"
+                filterPlaceholder="Buscar" [dragdrop]="true" (onSelectionChange)="onSelectionChangeVehiculo($event)">
+                <ng-template let-vehiculo pTemplate="item">
+                    <div>
+                        <label>{{vehiculo.code}}</label>
+                        <label>{{vehiculo.estado}}</label>
+                    </div>
+                </ng-template>
+            </p-orderList>
+        </div>
+    </div>
+</div>

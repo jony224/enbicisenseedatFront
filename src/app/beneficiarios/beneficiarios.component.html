@@ -1,0 +1,85 @@
+
+<p-card>
+  <p-table #dt [value]="listaBeneficiarios" [(selection)]="selectedBeneficiario" dataKey="id" [rowHover]="true"
+    [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[5,10,20]" [paginator]="true"
+    currentPageReportTemplate="[{first} - {last}] de {totalRecords} entradas" [filterDelay]="0"
+    [globalFilterFields]="['id','nombre','tipo']">
+    <ng-template pTemplate="caption">
+      <div class="table-header">
+        Lista de Beneficiarios
+        <span class="p-input-icon-left">
+          <i class="pi pi-search"></i>
+          <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')"
+            placeholder="Búsqueda General" />
+        </span>
+        <button class="btn btn-lg cloudy-knoxville-gradient" id="botonNuevoVoluntario"
+          routerLink="/agregarBeneficiario">
+          Nuevo Beneficiario
+        </button>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        <th pSortableColumn="id" [ngStyle]="{'width':'60px'}">
+          <div class="p-d-flex p-jc-between p-ai-center">
+            Id
+            <p-sortIcon field="id"></p-sortIcon>
+            <p-columnFilter type="text" field="id" display="menu" class="p-ml-auto"></p-columnFilter>
+          </div>
+        </th>
+        <th pSortableColumn="nombre">
+          <div class="p-d-flex p-jc-between p-ai-center">
+            Nombre
+            <p-sortIcon field="nombre"></p-sortIcon>
+            <p-columnFilter type="text" field="nombre" display="menu" class="p-ml-auto"></p-columnFilter>
+          </div>
+        </th>
+        <th pSortableColumn="email">
+          <div class="p-d-flex p-jc-between p-ai-center">
+            Email
+            <p-sortIcon field="email"></p-sortIcon>
+            <p-columnFilter type="text" field="email" display="menu" class="p-ml-auto"></p-columnFilter>
+          </div>
+        </th>
+        <th pSortableColumn="entidadNombre">
+          <div class="p-d-flex p-jc-between p-ai-center">
+            Nombre de Entidad
+            <p-sortIcon field="entidadNombre"></p-sortIcon>
+            <p-columnFilter type="text" field="entidadNombre" display="menu" class="p-ml-auto"></p-columnFilter>
+          </div>
+        </th>
+        <th pSortableColumn="telefono">
+          <div class="p-d-flex p-jc-between p-ai-center">
+            Teléfono
+            <p-sortIcon field="telefono"></p-sortIcon>
+            <p-columnFilter type="text" field="telefono" display="menu" class="p-ml-auto"></p-columnFilter>
+          </div>
+        </th>
+        <th [ngStyle]="{'width':'80px'}">
+          <div class="p-d-flex p-jc-between p-ai-center">
+            Eliminar
+          </div>
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-beneficiario>
+      <tr class="p-selectable-row">
+
+        <td>{{beneficiario.id}}</td>
+        <td>{{beneficiario.nombre}}</td>
+        <td>{{beneficiario.email}}</td>
+        <td>{{beneficiario.entidadNombre}}</td>
+        <td>{{beneficiario.telefono}}</td>
+        <td>
+          <button pButton type="button" class="p-button-danger" icon="pi pi-trash"
+            (click)="eliminarBeneficiario(beneficiario)"></button>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td colspan="8">No hay beneficiarios disponibles.</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</p-card>

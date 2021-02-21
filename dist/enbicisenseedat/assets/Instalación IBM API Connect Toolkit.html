@@ -1,0 +1,1759 @@
+<!DOCTYPE html>
+<!-- saved from url=(0068)https://docs.arquitectura.sca.corp/api/manuales/toolkit-instalacion/ -->
+<html lang="en"><!-- Page generated 2020-12-15 16:47:46 +0000 --><!-- relative link basehrefs --><!-- End of logic for 'edit this button' --><!-- _includes/relativepath.html --><!-- manuales/toolkit-instalacion.md --><!-- /manuales/toolkit-instalacion/ --><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=10"> 
+	<!--<base href="../">--><base href="."> 
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=10">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	<!-- favicon -->
+	<link rel="icon" type="image/x-icon" href="https://docs.arquitectura.sca.corp/favicons/favicon_48x48.ico" sizes="129x128"> 
+	<meta name="keywords" content="api, enrollment, instalacion, toolkit, api connect">
+	<link rel="stylesheet" href="./Instalación IBM API Connect Toolkit_files/font-awesome.min.css">
+	<link rel="stylesheet" href="./Instalación IBM API Connect Toolkit_files/bootstrap.min.css">
+	<link id="pygments" rel="stylesheet" href="./Instalación IBM API Connect Toolkit_files/perldoc.css">
+	<link id="pagestyle" rel="stylesheet" href="./Instalación IBM API Connect Toolkit_files/style.css">
+	<link id="pagestyle" rel="stylesheet" href="./Instalación IBM API Connect Toolkit_files/railscasts.css">
+	<!-- Go get "Open Sans" font from Google -->
+	<link href="./Instalación IBM API Connect Toolkit_files/family_open_sans.css" rel="stylesheet"> 
+	<title>Instalación IBM API Connect Toolkit</title> 
+	<meta name="description" content="Manual para la instalación del IBM API Connect Toolkit en los equipos locales">  
+	<meta name="keywords" content="api, enrollment, instalacion, toolkit, api connect"> 
+	<script type="text/javascript" src="./Instalación IBM API Connect Toolkit_files/loader.js.descarga"></script>
+	<script src="./Instalación IBM API Connect Toolkit_files/custom-charts.js.descarga"></script>
+</head>
+
+<body class="colums">
+	<header>
+		<nav class="nav-secondary navbar navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a href="https://docs.arquitectura.int.sca.corp/"><img class="logo" src="https://docs.arquitectura.sca.corp/api/manuales/" alt="SegurCaixa Adeslas Documentación" title="SegurCaixa Adeslas Documentación"></a>
+        </div>
+        <div class="navbar-collapse" aria-expanded="false" style="height: 1px;">
+            <div class="search-form" id="search-div">
+</div>
+<div class="sidebar-toggle">
+    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </button>
+</div>
+<div class="nav-container">
+    <div id="tabs">
+        <ul class="tabs">
+            
+
+
+
+
+ 
+    
+        <li class="dropdown">
+			<a href="https://docs.arquitectura.sca.corp/manuales/toolkit-instalacion/#" class="dropdown-toggle" data-toggle="dropdown">Arquitectura<b class="caret"></b></a>
+			<ul class="dropdown-menu">
+				
+					
+						<li><a href="https://docs.arquitectura.sca.corp/">Principios</a></li>
+					
+				
+					
+						<li><a href="https://docs.arquitectura.sca.corp/estrategia">Estrategia</a></li>
+					
+				
+					
+						<li><a href="https://docs.arquitectura.sca.corp/hechos-relevantes">Hecho relevantes</a></li>
+					
+				
+					
+						<li><a href="https://docs.arquitectura.sca.corp/proveedores">Proveedores</a></li>
+					
+				
+			</ul>
+        </li>
+    
+   
+  
+    
+        
+            <li><a href="https://docs.arquitectura.sca.corp/proyectos">Proyectos</a></li>
+        
+    
+        
+            <li><a href="https://docs.arquitectura.sca.corp/devops">Devops</a></li>
+        
+    
+        
+            <li><a href="https://docs.arquitectura.sca.corp/arquitectura-software">Arq. Software</a></li>
+        
+    
+   
+   
+    
+        <li class="dropdown">
+			<a href="https://docs.arquitectura.sca.corp/manuales/toolkit-instalacion/#" class="dropdown-toggle" data-toggle="dropdown">Arq. de Infraestructura<b class="caret"></b></a>
+			<ul class="dropdown-menu">
+				
+					
+						<li><a href="https://docs.arquitectura.sca.corp/almacenamiento">Almacenamiento</a></li>
+					
+				
+					
+						<li><a href="https://docs.arquitectura.sca.corp/automatizacion">Automatización</a></li>
+					
+				
+					
+						<li><a href="https://docs.arquitectura.sca.corp/bbdd">Bases de Datos</a></li>
+					
+				
+					
+						<li><a href="https://docs.arquitectura.sca.corp/cloud">Cloud</a></li>
+					
+				
+					
+						<li><a href="https://docs.arquitectura.sca.corp/monitorizacion">Monitorización</a></li>
+					
+				
+					
+						<li><a href="https://docs.arquitectura.sca.corp/puesto-de-usuario">Puesto de usuario</a></li>
+					
+				
+					
+						<li><a href="https://docs.arquitectura.sca.corp/redes">Redes</a></li>
+					
+				
+					
+						<li><a href="https://docs.arquitectura.sca.corp/servidores">Servidores</a></li>
+					
+				
+			</ul>
+        </li>
+    
+        <li class="dropdown">
+			<a href="https://docs.arquitectura.sca.corp/manuales/toolkit-instalacion/#" class="dropdown-toggle" data-toggle="dropdown">Arq. Técnica<b class="caret"></b></a>
+			<ul class="dropdown-menu">
+				
+					
+						<li><a href="https://docs.arquitectura.sca.corp/net">.NET</a></li>
+					
+				
+					
+						<li><a href="https://docs.arquitectura.sca.corp/api">API</a></li>
+					
+				
+					
+						<li><a href="https://docs.arquitectura.sca.corp/batch">Batch</a></li>
+					
+				
+					
+						<li><a href="https://docs.arquitectura.sca.corp/bpm">BPM</a></li>
+					
+				
+					
+						<li><a href="https://docs.arquitectura.sca.corp/bus">BUS</a></li>
+					
+				
+					
+						<li><a href="https://docs.arquitectura.sca.corp/bi">Business Intelligence</a></li>
+					
+				
+					
+						<li><a href="https://docs.arquitectura.sca.corp/gestion-documental">Gestión Documental</a></li>
+					
+				
+					
+						<li><a href="https://docs.arquitectura.sca.corp/java">Java</a></li>
+					
+				
+					
+						<li><a href="https://docs.arquitectura.sca.corp/portales">Portales</a></li>
+					
+				
+					
+						<li><a href="https://docs.arquitectura.sca.corp/seguridad">Seguridad</a></li>
+					
+				
+					
+						<li><a href="https://docs.arquitectura.sca.corp/web">Web</a></li>
+					
+				
+			</ul>
+        </li>
+    
+   
+        </ul>
+    </div>
+</div>
+        </div>
+    </div>
+</nav>
+	</header>
+
+	<div class="wrapper right-open">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-body">
+					<nav class="col-nav ">
+						<div id="sidebar-nav" class="sidebar sidebar-left hidden-sm hidden-xs toggled">
+							<div id="navbar" class="nav-sidebar">
+    <ul class="nav">
+
+	 <!-- _includes/relativepath.html -->
+
+
+
+
+
+
+
+
+
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/">Introducción</a>
+								
+			</li>
+		
+	
+
+	
+		
+			
+			<li>
+				<a data-target="#item2" data-toggle="collapse" data-parent="#stacked-menu" class="collapsed" aria-expanded="false">Arquitectura de referencia<span class="fa  fa-caret-right"></span></a>
+				<ul class="nav collapse" id="#item2" aria-expanded="false"><!-- _includes/relativepath.html -->
+
+
+
+
+
+
+
+
+
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/modelo-de-seguridad/arquitectura-de-referencia/">Modelo de seguridad-OAuth 2.0</a>
+								
+			</li>
+		
+	
+
+	
+		
+			
+			<li>
+				<a data-target="#item2" data-toggle="collapse" data-parent="#stacked-menu" class="collapsed" aria-expanded="false">APIs<span class="fa  fa-caret-right"></span></a>
+				<ul class="nav collapse" id="#item2" aria-expanded="false"><!-- _includes/relativepath.html -->
+
+
+
+
+
+
+
+
+
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/apis/arquitectura-general-apis/">Arquitectura general</a>
+								
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/apis/arquitectura-vmware/">VM Ware</a>
+								
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/apis/arquitectura-non-pro/">Arquitectura nonPRO</a>
+								
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/apis/arquitectura-pro/">Arquitectura Producción</a>
+								
+			</li>
+		
+	
+
+</ul>
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/nodered/arquitectura-de-referencia/">Node-RED</a>
+								
+			</li>
+		
+	
+
+</ul>
+			</li>
+		
+	
+
+	
+		
+			
+			<li>
+				<a data-target="#item3" data-toggle="collapse" data-parent="#stacked-menu" class="collapsed" aria-expanded="false">Soluciones técnicas<span class="fa  fa-caret-right"></span></a>
+				<ul class="nav collapse" id="#item3" aria-expanded="false"><!-- _includes/relativepath.html -->
+
+
+
+
+
+
+
+
+
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/soluciones-tecnicas/file-downloader/file-management-secure-internet/">File Downloader, descarga desde internet</a>
+								
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/soluciones-tecnicas/customer-mailboxes/file-management-secure-internet/">Buzon cliente, descarga segura de ficheros</a>
+								
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/soluciones-tecnicas/veci-portal-viajes/veci-intranet-sca/">Integración VECI con Intranet SCA</a>
+								
+			</li>
+		
+	
+
+	
+		
+			
+			<li>
+				<a data-target="#item4" data-toggle="collapse" data-parent="#stacked-menu" class="collapsed" aria-expanded="false">Soleta KTP Files<span class="fa  fa-caret-right"></span></a>
+				<ul class="nav collapse" id="#item4" aria-expanded="false"><!-- _includes/relativepath.html -->
+
+
+
+
+
+
+
+
+
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/soluciones-tecnicas/solera-ktp-files/intro/">Introducción</a>
+								
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/soluciones-tecnicas/solera-ktp-files/get-internet-files/">GET Internet Files</a>
+								
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/soluciones-tecnicas/solera-ktp-files/put-internet-files/">PUT Internet Files</a>
+								
+			</li>
+		
+	
+
+</ul>
+			</li>
+		
+	
+
+</ul>
+			</li>
+		
+	
+
+	
+		
+			
+			<li>
+				<a data-target="#item4" data-toggle="collapse" data-parent="#stacked-menu" class="collapsed" aria-expanded="false">PoCs<span class="fa  fa-caret-right"></span></a>
+				<ul class="nav collapse" id="#item4" aria-expanded="false"><!-- _includes/relativepath.html -->
+
+
+
+
+
+
+
+
+
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/poc/integracion-openam-api/">Integración OpenAM-API</a>
+								
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/poc/entorno-pro-uat/">Entorno PRO UAT</a>
+								
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/poc/api-file-management/">Sistema de subida de ficheros a FileNet</a>
+								
+			</li>
+		
+	
+
+	
+		
+			
+			<li>
+				<a data-target="#item4" data-toggle="collapse" data-parent="#stacked-menu" class="collapsed" aria-expanded="false">Reestructuración APIs<span class="fa  fa-caret-right"></span></a>
+				<ul class="nav collapse" id="#item4" aria-expanded="false"><!-- _includes/relativepath.html -->
+
+
+
+
+
+
+
+
+
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/poc/reestructuracion-planificacion/">Planificación</a>
+								
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/poc/reestructuracion-non-pro/">Reestructuración nonPRO</a>
+								
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/poc/reestructuracion-pro/">Reestructuración PRO</a>
+								
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/poc/reestructuracion-pre-migracion-apis/">Migración de código</a>
+								
+			</li>
+		
+	
+
+</ul>
+			</li>
+		
+	
+
+</ul>
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/monitorizaciones/introduccion-v-2/">Monitorización</a>
+								
+			</li>
+		
+	
+
+	
+		
+			
+			<li>
+				<a data-target="#item6" data-toggle="collapse" data-parent="#stacked-menu" aria-expanded="true">Manuales<span class="fa fa-caret-down	"></span></a>
+				<ul class="nav collapse in" id="#item6" aria-expanded="true"><!-- _includes/relativepath.html -->
+
+
+
+
+
+
+
+
+
+
+	
+		
+			
+			<li>
+				<a data-target="#item1" data-toggle="collapse" data-parent="#stacked-menu" class="collapsed" aria-expanded="false">Enrollment-On Boarding<span class="fa  fa-caret-right"></span></a>
+				<ul class="nav collapse" id="#item1" aria-expanded="false"><!-- _includes/relativepath.html -->
+
+
+
+
+
+
+
+
+
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/enrollment/introduccion/">Introducción</a>
+								
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/enrollment/api-roles/">API Roles</a>
+								
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/enrollment/api-developers/">On boarding API Developers, Publisher y Designer</a>
+								
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/enrollment/api-owners/">On boarding API Register, Product Owners y Organization Owner</a>
+								
+			</li>
+		
+	
+
+	
+		
+			
+			<li>
+				<a data-target="#item5" data-toggle="collapse" data-parent="#stacked-menu" class="collapsed" aria-expanded="false">API Portal-Consumo de APIs<span class="fa  fa-caret-right"></span></a>
+				<ul class="nav collapse" id="#item5" aria-expanded="false"><!-- _includes/relativepath.html -->
+
+
+
+
+
+
+
+
+
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/enrollment/api-portal/">Introducción</a>
+								
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/enrollment/apis-internas/">APIs Internas</a>
+								
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/enrollment/apis-externas/">APIs Externas</a>
+								
+			</li>
+		
+	
+
+</ul>
+			</li>
+		
+	
+
+</ul>
+			</li>
+		
+	
+
+	
+		
+			
+			<li>
+				<a data-target="#item2" data-toggle="collapse" data-parent="#stacked-menu" class="collapsed" aria-expanded="false">Seguridad en API<span class="fa  fa-caret-right"></span></a>
+				<ul class="nav collapse" id="#item2" aria-expanded="false"><!-- _includes/relativepath.html -->
+
+
+
+
+
+
+
+
+
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/modelo-de-seguridad/introduccion/">Introducción</a>
+								
+			</li>
+		
+	
+
+	
+		
+			
+			<li>
+				<a data-target="#item2" data-toggle="collapse" data-parent="#stacked-menu" class="collapsed" aria-expanded="false">OIDC<span class="fa  fa-caret-right"></span></a>
+				<ul class="nav collapse" id="#item2" aria-expanded="false"><!-- _includes/relativepath.html -->
+
+
+
+
+
+
+
+
+
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/modelo-de-seguridad/oidc-introduccion/">Introducción OIDC</a>
+								
+			</li>
+		
+	
+
+</ul>
+			</li>
+		
+	
+
+	
+		
+			
+			<li>
+				<a data-target="#item3" data-toggle="collapse" data-parent="#stacked-menu" class="collapsed" aria-expanded="false">OAuth 2.0<span class="fa  fa-caret-right"></span></a>
+				<ul class="nav collapse" id="#item3" aria-expanded="false"><!-- _includes/relativepath.html -->
+
+
+
+
+
+
+
+
+
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/modelo-de-seguridad/oauth-introduccion/">Introducción OAuth 2.0</a>
+								
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/modelo-de-seguridad/oauth-confidential-password/">Confidential Password</a>
+								
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/modelo-de-seguridad/oauth-confidential-accesscode/">Confidential AccessCode</a>
+								
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/modelo-de-seguridad/oauth-confidential-application/">Confidential Application</a>
+								
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/modelo-de-seguridad/oauth-public-password/">Public Password</a>
+								
+			</li>
+		
+	
+
+</ul>
+			</li>
+		
+	
+
+</ul>
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/manuales/toolkit-instalacion/">Instalación IBM Toolkit</a>
+								
+			</li>
+		
+	
+
+	
+		
+			
+			<li>
+				<a data-target="#item4" data-toggle="collapse" data-parent="#stacked-menu" class="collapsed" aria-expanded="false">IBM API Connect<span class="fa  fa-caret-right"></span></a>
+				<ul class="nav collapse" id="#item4" aria-expanded="false"><!-- _includes/relativepath.html -->
+
+
+
+
+
+
+
+
+
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/apis/introduccion/">Introducción</a>
+								
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/apis/ciclo-de-vida-de-las-apis/">Ciclo de vida de las APIs</a>
+								
+			</li>
+		
+	
+
+	
+		
+			
+			<li>
+				<a data-target="#item3" data-toggle="collapse" data-parent="#stacked-menu" class="collapsed" aria-expanded="false">Versionado API/Producto<span class="fa  fa-caret-right"></span></a>
+				<ul class="nav collapse" id="#item3" aria-expanded="false"><!-- _includes/relativepath.html -->
+
+
+
+
+
+
+
+
+
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/apis/versionado-introduccion/">Introducción</a>
+								
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/apis/versionado-apis/">Versionando APIs</a>
+								
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/apis/versionado-productos/">Versionando Productos</a>
+								
+			</li>
+		
+	
+
+</ul>
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/apis/productos/">Productos</a>
+								
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/apis/definicion/">Definición</a>
+								
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/apis/diseno/">Diseño</a>
+								
+			</li>
+		
+	
+
+	
+		
+			
+			<li>
+				<a data-target="#item7" data-toggle="collapse" data-parent="#stacked-menu" class="collapsed" aria-expanded="false">Desarrollo-Ensamblado<span class="fa  fa-caret-right"></span></a>
+				<ul class="nav collapse" id="#item7" aria-expanded="false"><!-- _includes/relativepath.html -->
+
+
+
+
+
+
+
+
+
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/apis/ensamblado/">Ensamblado</a>
+								
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/apis/custom-policies/">Custom Policies</a>
+								
+			</li>
+		
+	
+
+</ul>
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/apis/postman-de-prueba/">Postman de prueba</a>
+								
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/apis/entrega-y-despliegue-de-software/">Entrega y despliegue de Software</a>
+								
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/apis/caso-practico/">Caso práctico</a>
+								
+			</li>
+		
+	
+
+</ul>
+			</li>
+		
+	
+
+	
+		
+			
+			<li>
+				<a data-target="#item5" data-toggle="collapse" data-parent="#stacked-menu" class="collapsed" aria-expanded="false">Patrones de diseño APIs<span class="fa  fa-caret-right"></span></a>
+				<ul class="nav collapse" id="#item5" aria-expanded="false"><!-- _includes/relativepath.html -->
+
+
+
+
+
+
+
+
+
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/patrones-de-diseno/introduccion/">Introducción</a>
+								
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/patrones-de-diseno/integracion-con-servicios-asmx/">Integración con servicios ASMX</a>
+								
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/patrones-de-diseno/integracion-con-servicios-wcf/">Integración con servicios WCF</a>
+								
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/patrones-de-diseno/get-url-largas/">GET con URL demasiado larga</a>
+								
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/patrones-de-diseno/paginacion/">Paginación en búsquedas</a>
+								
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/patrones-de-diseno/get-datos-sensibles-uri/">GET Datos sensibles en la uri</a>
+								
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/patrones-de-diseno/api-bus-bpm/">API-BUS-BPM</a>
+								
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/patrones-de-diseno/cambio-oauth-pass-confidential-public/">Cambio de flujo OAuth Confidential-Pass por Public-Pass</a>
+								
+			</li>
+		
+	
+
+</ul>
+			</li>
+		
+	
+
+	
+		
+			
+			<li>
+				<a data-target="#item6" data-toggle="collapse" data-parent="#stacked-menu" class="collapsed" aria-expanded="false">Node-RED<span class="fa  fa-caret-right"></span></a>
+				<ul class="nav collapse" id="#item6" aria-expanded="false"><!-- _includes/relativepath.html -->
+
+
+
+
+
+
+
+
+
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/nodered/introduccion/">Introducción</a>
+								
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/nodered/instalacion-local/">Instalación local</a>
+								
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/nodered/creacion-de-un-mock-sencillo/">Creación de un mock sencillo</a>
+								
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/nodered/entrega-software/">Entrega y despliegue de Software</a>
+								
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/nodered/control-flujos/">Control de despliegues</a>
+								
+			</li>
+		
+	
+
+</ul>
+			</li>
+		
+	
+
+	
+		
+			
+			<li>
+				<a data-target="#item7" data-toggle="collapse" data-parent="#stacked-menu" class="collapsed" aria-expanded="false">Monográficos de APIs<span class="fa  fa-caret-right"></span></a>
+				<ul class="nav collapse" id="#item7" aria-expanded="false"><!-- _includes/relativepath.html -->
+
+
+
+
+
+
+
+
+
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/apis/slides/introduccion-general-de-apis/">Introducción general de APIs</a>
+								
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/apis/slides/explotacion-vmware-api/">VM Ware y APIs</a>
+								
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/apis/slides/explotacion-comunicaciones/">Comunicaciones con APIs</a>
+								
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/apis/slides/explotacion-api-manager/">API Manager</a>
+								
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/apis/slides/explotacion-api-portal/">API Developer Portal</a>
+								
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/apis/slides/explotacion-api-gateway/">API Gateway</a>
+								
+			</li>
+		
+	
+
+</ul>
+			</li>
+		
+	
+
+	
+		
+			
+			<li>
+				<a data-target="#item8" data-toggle="collapse" data-parent="#stacked-menu" class="collapsed" aria-expanded="false">Explotación<span class="fa  fa-caret-right"></span></a>
+				<ul class="nav collapse" id="#item8" aria-expanded="false"><!-- _includes/relativepath.html -->
+
+
+
+
+
+
+
+
+
+
+	
+		
+			
+			<li>
+				<a data-target="#item1" data-toggle="collapse" data-parent="#stacked-menu" class="collapsed" aria-expanded="false">APIs<span class="fa  fa-caret-right"></span></a>
+				<ul class="nav collapse" id="#item1" aria-expanded="false"><!-- _includes/relativepath.html -->
+
+
+
+
+
+
+
+
+
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/manuales/apis/explotacion-reinicio-plataforma/">Arranque/Parada de la plataforma</a>
+								
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/manuales/apis/explotacion-despliegue-apis/">Despliegues Productos/APIs</a>
+								
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/manuales/apis/explotacion-monitorizacion-apis/">Monitorización</a>
+								
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/manuales/apis/explotacion-backups/">Backups</a>
+								
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/manuales/apis/explotacion-logs/">Identificación de Logs</a>
+								
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/manuales/apis/explotacion-apiconnect/">Configuraciones de API Connect</a>
+								
+			</li>
+		
+	
+
+</ul>
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/manuales/explotacion-node-red/">Node-RED</a>
+								
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/manuales/explotacion-rsyslog/">rSyslog</a>
+								
+			</li>
+		
+	
+
+</ul>
+			</li>
+		
+	
+
+</ul>
+			</li>
+		
+	
+
+	
+		
+			
+			<li>
+				<a data-target="#item7" data-toggle="collapse" data-parent="#stacked-menu" class="collapsed" aria-expanded="false">Normativa APIs/Productos<span class="fa  fa-caret-right"></span></a>
+				<ul class="nav collapse" id="#item7" aria-expanded="false"><!-- _includes/relativepath.html -->
+
+
+
+
+
+
+
+
+
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/normativas/introduccion/">Introducción</a>
+								
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/normativas/van/">VAN</a>
+								
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/normativas/normativas-api-v1.0.2/">Normativa de APIs V1.0.x</a>
+								
+			</li>
+		
+	
+
+</ul>
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/articulos-de-interes/">Artículos de Interés</a>
+								
+			</li>
+		
+	
+
+	
+		
+			<li>
+				
+				
+				<a href="https://docs.arquitectura.sca.corp/api/changelog/">ChangeLog</a>
+								
+			</li>
+		
+	
+
+ 
+    </ul>
+</div>
+
+						</div>
+					</nav>
+					<main class="col-content content">
+						<div class="close-sidebar close-sidebar-left hidden-xs hidden-sm">
+							<a id="menu-toggle-left" href="https://docs.arquitectura.sca.corp/manuales/toolkit-instalacion/#">
+								<i id="button-close-sidebar-left" class="fa fa-chevron-left active" aria-hidden="true">
+								</i>
+							</a>
+						</div>
+						<div class="close-sidebar close-sidebar-right hidden-xs hidden-sm">
+							<a id="menu-toggle-right" href="https://docs.arquitectura.sca.corp/manuales/toolkit-instalacion/#">
+								<i id="button-close-sidebar-right" class="fa fa-chevron-left" aria-hidden="true">
+								</i>
+							</a>
+						</div>
+						<section class="section">
+							
+							<h1>Instalación IBM API Connect Toolkit</h1>
+							  <span class="reading-time" title="Estimated reading time">
+  <span class="reading-time-label">Tiempo estimado de lectura: </span>
+  
+  
+    2 minutos
+  
+</span>
+   
+							<a target="_blank" href="https://segurcaixaadeslas.visualstudio.com/Arq.Documentacion/_git/Arq.Documentacion.API?path=manuales/toolkit-instalacion.md" class="btn btn-default githubEditButton editButton" role="button">
+								<i class="fa fa-code-fork fa-lg"></i>Editar</a>
+							  <p><img src="./Instalación IBM API Connect Toolkit_files/ibm-api-connect.png" alt="IBM API Connect"></p>
+
+<h2 id="introduccion">Introducción</h2>
+
+<p>IBM API Connect Toolkit es una herramienta de desarrollo de APIs, completamente compatible con IBM API Manager para la instalación en equipos locales sin necesidad de tener un IBM DataPower.</p>
+
+<p>Es la herramienta con la que se deberá realizar los desarrollos y las publicaciones a los API Manager de los diferentes entornos. Trabajando dentro de la red de SCA (vía VDI o VPN) se podrán realizar pruebas unitarias e incluso de integración básica con los backends de Desarrollo con los que se comunicará.</p>
+
+<h2 id="instalacion-de-la-herramienta">Instalación de la herramienta</h2>
+
+<ol>
+  <li>Descargar e instalar <a href="https://nodejs.org/en/download/">Node.js</a></li>
+  <li>Actualizar npm a&nbsp;su&nbsp;última versión
+Abrir consola de comandos (<em>cmd</em>) con permisos de administrador, y ejecutar la siguiente instrucción:
+    <div class="highlighter-rouge"><pre class="highlight"><code class="hljs coffeescript"><span class="hljs-built_in">npm</span> install -g <span class="hljs-built_in">npm</span>
+</code></pre>
+    </div>
+  </li>
+  <li>Configuración del proxy SCA:
+Si la instalación se va a realizar desde una máquina situada en la red interna de SCA, es necesario configurar el proxy para poder realizar correctamente la descarga del software. En caso contrario, ++continuar la instalación desde el punto 4++.
+Configuración del proxy: En la&nbsp;consola de comandos (<em>cmd</em>), ejecutar las siguientes instrucciones&nbsp;sustituyendo ‘<em>username</em>’ y ‘<em>password</em>’ por credenciales de usuario válidas del dominio SCA:
+    <div class="highlighter-rouge"><pre class="highlight"><code class="hljs sql">npm <span class="hljs-keyword">set</span> proxy <span class="hljs-keyword">http</span>://grupoadeslas<span class="hljs-number">.2</span>k3%<span class="hljs-number">5</span>Cusername:<span class="hljs-keyword">password</span>@proxy.sca.corp:<span class="hljs-number">80</span>
+npm config <span class="hljs-keyword">set</span> https-proxy <span class="hljs-keyword">http</span>://grupoadeslas<span class="hljs-number">.2</span>k3%<span class="hljs-number">5</span>Cusername:<span class="hljs-keyword">password</span>@proxy.sca.corp:<span class="hljs-number">80</span>
+npm config <span class="hljs-keyword">set</span> registry <span class="hljs-keyword">http</span>://registry.npmjs.org/
+</code></pre>
+    </div>
+  </li>
+  <li>Instalar API Connect:
+    <div class="highlighter-rouge"><pre class="highlight"><code class="hljs css"><span class="hljs-selector-tag">npm</span> <span class="hljs-selector-tag">install</span> <span class="hljs-selector-tag">-g</span> <span class="hljs-selector-tag">apiconnect</span>@<span class="hljs-keyword">2</span>.<span class="hljs-keyword">4</span>.<span class="hljs-keyword">11</span>
+</code></pre>
+    </div>
+    <p>Podría darse el caso en el que en la instalación estemos obteniendo un error por no tener previamente instalado Python. En tal taso deberemos instalar este paquete npm previamente:</p>
+    <div class="highlighter-rouge"><pre class="highlight"><code class="hljs sql">npm <span class="hljs-keyword">install</span> python
+</code></pre>
+    </div>
+  </li>
+</ol>
+
+<h2 id="getting-started">Getting started</h2>
+
+<p>A continuación explicaremos los pasos a seguir para comenzar a trabajar desarrollando APIs</p>
+
+<p>Acceder a la ruda dónde se ha creado la aplicación&nbsp;ejecutar el comando ‘apic edit’ en el directorio en el que deseemos trabajar</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">cd</span> my-notes</span>
+</code></pre>
+</div>
+
+<p>Cargar la configuración de la exposición que se desee en función de si&nbsp;se trata de una API interna o externa</p>
+<div class="highlighter-rouge"><pre class="highlight"><code class="hljs sql">apic config:<span class="hljs-keyword">set</span> <span class="hljs-keyword">catalog</span>=apic-<span class="hljs-keyword">catalog</span>://apiconnect.cert.sca.corp/orgs/scainterna/catalogs/desarrollo
+apic config:<span class="hljs-keyword">set</span> <span class="hljs-keyword">catalog</span>=apic-<span class="hljs-keyword">catalog</span>://apiconnect.cert.sca.corp/orgs/sca/catalogs/desarrollo
+</code></pre>
+</div>
+
+<p>Ejecutar el comando ‘apic edit’</p>
+<div class="highlighter-rouge"><pre class="highlight"><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> apic edit</span>
+</code></pre>
+</div>
+
+<p>A continuación se ejecutará el portal de&nbsp;desarrollo para&nbsp;API Connect.</p>
+
+<div class="alert alert-success" role="alert">
+<em class="fa fa-check-square-o"></em> <strong>Tip:</strong> NOTA:&nbsp;En caso de &nbsp;aparecer la pantalla de BlueMix solicitando el login en esta plataforma, cerrar y antes de iniciar de nuevo el API Designer ejecutar el siguiente comando: $ set SKIP_LOGIN=true
+</div>
+
+<p>Para más detalle a cerca de la herramienta, os dejamos la documentación de IBM: <a href="https://developer.ibm.com/apiconnect/getting-started/">API Connect for Developers</a></p>
+
+							<!-- tags -->
+							   
+							<span class="glyphicon glyphicon-tags" style="padding-right: 10px"></span>
+							<span style="vertical-align: 2px">
+							<a href="https://docs.arquitectura.sca.corp/glossary/?term=api">api</a>, 
+							<a href="https://docs.arquitectura.sca.corp/glossary/?term=enrollment">enrollment</a>, 
+							<a href="https://docs.arquitectura.sca.corp/glossary/?term=instalacion">instalacion</a>, 
+							<a href="https://docs.arquitectura.sca.corp/glossary/?term=toolkit">toolkit</a>, 
+							<a href="https://docs.arquitectura.sca.corp/glossary/?term=api%20connect">api connect</a></span>  
+							<div class="generated">
+								<span>Última modificación el 08/02/2019 - 09:23:25  por Carlos Mingo</span>
+							</div>
+							<!-- link corrections -->
+							<script language="JavaScript">
+								var x = document.links.length;
+								var baseHref = document.getElementsByTagName('base')[0].href
+								for (i = 0; i < x; i++) {
+									var munged = false;
+									var thisHREF = document.links[i].href;
+									var originalURL = "/manuales/toolkit-instalacion/";
+									if (thisHREF.indexOf(baseHref + "#") > -1) {
+										// hash fix
+										//console.log('BEFORE: base:',baseHref,'thisHREF:',thisHREF,'originalURL:',originalURL);
+										thisHREF = originalURL + thisHREF.replace(baseHref, "");
+										//console.log('AFTER: base:',baseHref,'thisHREF:',thisHREF,'originalURL:',originalURL);
+									}
+									if ((thisHREF.indexOf(window.location.hostname) > -1 || thisHREF.indexOf('http') == -1) && document.links[i].className
+										.indexOf("nomunge") < 0) {
+										munged = true;
+										thisHREF = thisHREF.replace(".md", "/").replace("/index/", "/");
+										document.links[i].setAttribute('href', thisHREF);
+									}
+								}
+							</script>
+						</section>
+
+					</main>
+					<div class="col-toc col-toc-hidden">
+						<div class="sidebar sidebar-right hidden-xs hidden-sm">
+							<div class="toc-nav">
+								   
+								<div id="side-toc-title">En esta página:</div>
+								
+<ul id="my_toc" class="inline_toc">
+  <li><a href="https://docs.arquitectura.sca.corp/manuales/toolkit-instalacion/#introduccion" class="nomunge">Introducción</a></li>
+  <li><a href="https://docs.arquitectura.sca.corp/manuales/toolkit-instalacion/#instalacion-de-la-herramienta" class="nomunge">Instalación de la herramienta</a></li>
+  <li><a href="https://docs.arquitectura.sca.corp/manuales/toolkit-instalacion/#getting-started" class="nomunge">Getting started</a></li>
+</ul>
+
+
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<a onclick="topFunction()" id="myBtn" title="Go to top" style="display: block;">
+		<i class="fa fa-arrow-up" aria-hidden="true"></i>
+	</a>
+	<footer class="footer">
+		
+    <div class="container">
+        <div class="bottom_footer">
+            <div class="footer-contribucion col-xs-12 col-md-6">
+            
+                  <a href="https://docs.arquitectura.sca.corp/contribucion" target="_blank"><i class="fa fa-book" aria-hidden="true"></i> Guía de Contribución</a> 
+					
+            </div>
+            <div class="footer_logo col-xs-12 col-md-6">
+				<p><img src="https://docs.arquitectura.sca.corp/api/manuales/" alt="SegurCaixa Adeslas Documentación"></p>
+               
+            </div>
+        </div>
+    </div>
+
+	</footer>
+
+	<script defer="" src="./Instalación IBM API Connect Toolkit_files/menu.js.descarga"></script>
+	<script src="./Instalación IBM API Connect Toolkit_files/jquery.js.descarga"></script>
+	<script src="./Instalación IBM API Connect Toolkit_files/bootstrap.min.js.descarga"></script>
+	<script src="./Instalación IBM API Connect Toolkit_files/stickyfill.min.js.descarga"></script>
+	<script defer="" src="./Instalación IBM API Connect Toolkit_files/docs.js.descarga"></script>
+	<script src="./Instalación IBM API Connect Toolkit_files/highlight.pack.js.descarga"></script>
+	<script>
+		hljs.initHighlightingOnLoad();
+	</script>
+	<script language="javascript">
+		jQuery(document).ready(function () {
+
+
+			$.getJSON("/./metadata-general.txt", function (data) {
+				metadata = data;
+				hookupTOCEvents();
+				$.getJSON("../glossary.txt", function (data) {
+					glossary = data;
+					renderTagsPage();
+				});
+			});
+			//solucionar error de los headers con tilde
+			$(":header").each(function () {
+				if (this.id) {
+					this.id = this.id.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+				}
+			});
+			$("#my_toc").find('a').each(function () {
+				this.href = decodeURI(this.href).normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+			});
+
+		});
+	</script>
+
+
+</body></html>

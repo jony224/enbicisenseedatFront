@@ -1,0 +1,22 @@
+.breadCrumbEstil {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 64px;
+    padding: 0 1em 0 4em;
+    background-color: var(--grey);
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);
+    z-index: 1000;
+}
+
+.custom-bread {
+    background: transparent !important;
+    border: none !important;
+}
+
+.custom-bread li.ui-breadcrumb-chevron {
+    font-size: 1em !important;
+    margin: 0 !important;
+}

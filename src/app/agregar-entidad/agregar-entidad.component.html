@@ -1,0 +1,29 @@
+<h1 class="paddingBottom">Agregar Entidad</h1>
+<p-card header = "Rellena el formulario para agregar una entidad.">
+        
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+
+        <div class="p-grid">
+            <div class="p-col-12 p-md-4">
+                <label>Tipo<span class="asterisco">*</span></label>
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon"><i class="fas fa-city"></i></span>
+                    <p-dropdown [options]="listaTipos" formControlName="tipo" placeholder="Selecciona un tipo"
+                        optionLabel="nombre" [showClear]="true"></p-dropdown>
+                </div>
+            </div>
+            <div class="p-col-12 p-md-4">
+                <label>Nombre<span class="asterisco">*</span></label>
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon"><i class="fas fa-user"></i></span>
+                    <input type="text" pInputText formControlName="nombre" placeholder="Nombre">
+                </div>
+            </div>
+            <div class="p-col-12 p-md-4">
+                <button pButton type="button" [disabled]="!signupForm.valid" label="Agregar" class="p-button-raised"
+                    (click)="onSubmit()"></button>
+            </div>
+            
+        </div>
+    </form>
+</p-card>

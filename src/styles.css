@@ -1,0 +1,63 @@
+/* You can add global styles to this file, and also import other style files */
+@import './variables.css';
+
+td{
+    font-size: 13px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+th{
+    font-size: 13px;
+}
+button{
+    font-size: 13px;
+}
+label{
+    font-size: 13px;
+}
+input{
+    font-size: 13px;
+}
+html, body { height: 100%;
+width: 100% !important; }
+
+body .p-inputtext,
+label,
+small,
+body .p-button,
+body .p-fieldset-legend,
+th,
+td,
+body .p-tabview,
+body .p-paginator-element,
+body .p-dropdown-item,
+body .p-listbox-item,
+body .p-sortable-column-icon,
+body .p-fileupload-row {
+    font-size: 13px;
+}
+
+body .p-toast{
+    position: fixed;
+    left: 10%;
+    width: 50%;
+    font-size: 18px;
+}
+body .p-confirmDialog{
+    font-size: 18px;
+}
+
+.thId{
+    width:'60px';
+}
+.thSubirBajarNivel{
+    width:'100px';
+}
+.thEliminar{
+    width:'100px' !important;
+}
+
+body .p-breadcrumb {
+    font-size: 16px !important;
+    margin-top: .4em !important;
+}

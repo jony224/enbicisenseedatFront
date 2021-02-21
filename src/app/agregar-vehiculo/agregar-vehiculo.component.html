@@ -1,0 +1,30 @@
+<h1 class="paddingBottom">Agregar Paseo</h1>
+    <p-card header = "Rellena el formulario para agregar un vehículo.">
+        
+        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+
+            <div class="p-grid">
+                <div class="p-col-12 p-md-4">
+                    <label>Estado del vehículo<span class="asterisco">*</span></label>
+                    <div class="p-inputgroup">
+                        <span class="p-inputgroup-addon"><i class="fas fa-tools"></i></span>
+                        <p-dropdown [options]="listaEstados" formControlName="estado" placeholder="Selecciona un estado"
+                            optionLabel="name" [showClear]="true"></p-dropdown>
+                    </div>
+                </div>
+                <div class="p-col-12 p-md-4">
+                    <label>Localización<span class="asterisco">*</span></label>
+                    <div class="p-inputgroup">
+                        <span class="p-inputgroup-addon"><i class="fas fa-bicycle"></i></span>
+                        <input type="text" pInputText formControlName="localizacion" placeholder="Localización">
+                    </div>
+                </div>
+                <div class="p-col-12 p-md-4">
+                    <button pButton type="button" [disabled]="!signupForm.valid" label="Agregar" class="p-button-raised"
+                        (click)="onSubmit()"></button>
+                </div>
+
+            </div>
+
+        </form>
+    </p-card>

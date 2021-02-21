@@ -1,0 +1,67 @@
+
+<p-card>
+  <p-table #dt [value]="listaVehiculos" [(selection)]="selectedVehiculos" dataKey="id" [rowHover]="true" [rows]="10"
+    [showCurrentPageReport]="true" [rowsPerPageOptions]="[5,10,20]" [paginator]="true"
+    currentPageReportTemplate="Mostrando de la {first} a la  {last} de {totalRecords} entradas" [filterDelay]="0"
+    [globalFilterFields]="['id','estado','localizacion']">
+    <ng-template pTemplate="caption">
+      <div class="table-header">
+        Lista de Vehículos
+        <span class="p-input-icon-left">
+          <i class="pi pi-search"></i>
+          <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')"
+            placeholder="Búsqueda General" />
+        </span>
+        <button pButton type="button" label="Nuevo Vehículo" routerLink="/agregarVehiculo" class="p-button-raised"></button>
+      </div>
+    </ng-template>
+
+    <ng-template pTemplate="header">
+      <tr>
+        <th pSortableColumn="id" [ngStyle]="{'width':'60px'}">
+          <div class="p-d-flex p-jc-between p-ai-center">
+            Id
+            <p-sortIcon field="id"></p-sortIcon>
+            <p-columnFilter type="text" field="id" display="menu" class="p-ml-auto"></p-columnFilter>
+          </div>
+        </th>
+        <th pSortableColumn="estado">
+          <div class="p-d-flex p-jc-between p-ai-center">
+            Estado
+            <p-sortIcon field="estado"></p-sortIcon>
+            <p-columnFilter type="text" field="estado" display="menu" class="p-ml-auto"></p-columnFilter>
+          </div>
+        </th>
+        <th pSortableColumn="localizacion">
+          <div class="p-d-flex p-jc-between p-ai-center">
+            Localización
+            <p-sortIcon field="localizacion"></p-sortIcon>
+            <p-columnFilter type="text" field="localizacion" display="menu" class="p-ml-auto"></p-columnFilter>
+          </div>
+        </th>
+        <th [ngStyle]="{'width':'80px'}">
+          <div class="p-d-flex p-jc-between p-ai-center">
+            Eliminar
+          </div>
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-vehiculo>
+      <tr class="p-selectable-row">
+
+        <td>{{vehiculo.id}}</td>
+        <td>{{vehiculo.estado}}</td>
+        <td>{{vehiculo.localizacion}}</td>
+        <td>
+          <button pButton type="button" class="p-button-danger" icon="pi pi-trash"
+            (click)="eliminarVehiculo(vehiculo)"></button>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td colspan="8">No hay vehículos disponibles.</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</p-card>

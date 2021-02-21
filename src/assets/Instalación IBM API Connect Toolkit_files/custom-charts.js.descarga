@@ -1,0 +1,271 @@
+function Gantt(datos,altura,divId) {
+	if (divId == undefined)
+		divId = 'chart_div';												
+  google.charts.load('current', {'packages':['gantt']});
+  google.charts.setOnLoadCallback(drawChart);
+
+  function drawChart() {
+
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', 'Task ID');
+    data.addColumn('string', 'Task Name');
+    data.addColumn('date', 'Start Date');
+    data.addColumn('date', 'End Date');
+    data.addColumn('number', 'Duration');
+    data.addColumn('number', 'Percent Complete');
+    data.addColumn('string', 'Dependencies');
+
+    data.addRows(datos);
+
+    var options = {
+      height: altura
+    };
+
+    var chart = new google.visualization.Gantt(document.getElementById(divId));
+
+    chart.draw(data, options);
+  }
+}
+/*function Gantt(datos,altura,divId) {
+
+  google.charts.load('current', {'packages':['gantt']});
+  google.charts.setOnLoadCallback(drawChart);
+
+  function drawChart() {
+
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', 'Task ID');
+    data.addColumn('string', 'Task Name');
+    data.addColumn('date', 'Start Date');
+    data.addColumn('date', 'End Date');
+    data.addColumn('number', 'Duration');
+    data.addColumn('number', 'Percent Complete');
+    data.addColumn('string', 'Dependencies');
+
+    data.addRows(datos);
+
+    var options = {
+      height: altura
+    };
+
+    var chart = new google.visualization.Gantt(document.getElementById(divId));
+
+    chart.draw(data, options);
+  }
+}
+*/
+function dias(days) {
+  return days * 24 * 60 * 60 * 1000;
+}
+
+function fecha(d,m,a) {
+  return new Date(a,--m,d);
+}
+
+function cumulativeAdvance(datos,altura,titulo,divId ) {
+
+	if (divId == undefined)
+		divId = 'cumulativeAdvance_chart_div';
+  	google.charts.load('current', {packages: ['corechart', 'line']});
+	google.charts.setOnLoadCallback(drawChartLines);
+
+ 
+	function drawChartLines() {
+
+		  var data = new google.visualization.DataTable();
+		  data.addColumn('date', 'Fecha');
+		  data.addColumn('number', "Estimación");
+		  data.addColumn('number', "Avance real");
+		  data.addRows(calculateCumulative(datos));
+			var options = {
+			  title: titulo,
+			  curveType: 'none',
+			  legend: { position: 'bottom' },
+			  series: { 0: { lineDashStyle: [10, 2] }},
+		      colors: ['#2089C4', '#A3BF2A'],
+			  height: altura
+			  };
+
+		  var chart = new google.visualization.LineChart(document.getElementById(divId));
+
+		  chart.draw(data, options);
+	}
+	function calculateCumulative(datos) {
+		var datosCumulative = datos;
+		for(i = 1; i < datos.length; i++){
+			datosCumulative[i][1]=datos[i][1]+datosCumulative[i-1][1];
+			datosCumulative[i][2]=datos[i][2]+datosCumulative[i-1][2];
+		}
+		return datosCumulative;
+		
+	}
+}
+
+function linealCumulativeAdvance(datos,total,altura,titulo,divId ) {
+	if (divId == undefined)
+		divId = 'linealCumulativeAdvance_chart_div';
+  	google.charts.load('current', {packages: ['corechart', 'line']});
+	google.charts.setOnLoadCallback(drawChartLines);
+
+ 
+	function drawChartLines() {
+
+		  var data = new google.visualization.DataTable();
+		  data.addColumn('date', 'Fecha');
+		  data.addColumn('number', "Estimación");
+		  data.addColumn('number', "Avance real");
+		  data.addRows(calculateCumulative(datos,total));
+			var options = {
+			  title: titulo,
+			  curveType: 'none',
+			  legend: { position: 'bottom' },
+			  series: { 0: { lineDashStyle: [10, 2] }},
+		      colors: ['#2089C4', '#A3BF2A'],
+			  height: altura
+			  };
+
+		  var chart = new google.visualization.LineChart(document.getElementById(divId));
+
+		  chart.draw(data, options);
+	}
+	function calculateCumulative(datos,total) {
+		var datosCumulative = new Array (datos.length);
+		var sum = total/(datos.length - 1);
+		for(i = 0; i < datos.length; i++){
+			if(i>0){
+			datosCumulative[i]=new Array(3);
+			datosCumulative[i][0] = datos[i][0];
+			datosCumulative[i][2]=datos[i][1]+datosCumulative[i-1][2];
+			datosCumulative[i][1]=sum+datosCumulative[i-1][1];
+			}else{
+			datosCumulative[i]=new Array(3);
+			datosCumulative[i][0]=datos[i][0];
+			datosCumulative[i][2]=datos[i][1];
+			datosCumulative[i][1]=0;
+			}
+		}
+		return datosCumulative;
+		
+	}
+}
+function advance(datos,altura,titulo,divId ) {
+	if (divId == undefined)
+		divId = 'advance_chart_div';					  
+  	google.charts.load('current', {packages: ['corechart', 'line']});
+	google.charts.setOnLoadCallback(drawChartLines);
+
+ 
+	function drawChartLines() {
+
+		  var data = new google.visualization.DataTable();
+		  data.addColumn('date', 'Fecha');
+		  data.addColumn('number', "Estimación");
+		  data.addColumn('number', "Avance real");
+		  data.addRows(datos);
+			var options = {
+			  title: titulo,
+			  curveType: 'none',
+			  legend: { position: 'bottom' },
+			  series: { 0: { lineDashStyle: [10, 2] }},
+		      colors: ['#2089C4', '#A3BF2A'],
+			  height: altura
+			  };
+
+		  var chart = new google.visualization.LineChart(document.getElementById(divId));
+
+		  chart.draw(data, options);
+	}
+}
+
+function linealAdvance(datos,total,altura,titulo,divId ) {
+	if (divId == undefined)
+		divId = 'linealAdvance_chart_div';
+  	google.charts.load('current', {packages: ['corechart', 'line']});
+	google.charts.setOnLoadCallback(drawChartLines);
+
+ 
+	function drawChartLines() {
+
+		  var data = new google.visualization.DataTable();
+		  data.addColumn('date', 'Fecha');
+		  data.addColumn('number', "Estimación");
+		  data.addColumn('number', "Avance real");
+		  data.addRows(calculateNoCumulative(datos,total));
+			var options = {
+			  title: titulo,
+			  curveType: 'none',
+			  legend: { position: 'bottom' },
+			  series: { 0: { lineDashStyle: [10, 2] }},
+		      colors: ['#2089C4', '#A3BF2A'],
+			  height: altura
+			  };
+
+		  var chart = new google.visualization.LineChart(document.getElementById(divId));
+
+		  chart.draw(data, options);
+	}
+	function calculateNoCumulative(datos,total) {
+		var datosComplete = new Array (datos.length);
+		var sum = total/(datos.length - 1);
+		for(i = 0; i < datos.length; i++){
+			if(i>0){
+			datosComplete[i]=new Array(3);
+			datosComplete[i][0] = datos[i][0];
+			datosComplete[i][2]=datos[i][1];
+			datosComplete[i][1]=sum+datosComplete[i-1][1];
+			}else{
+			datosComplete[i]=new Array(3);
+			datosComplete[i][0]=datos[i][0];
+			datosComplete[i][2]=datos[i][1];
+			datosComplete[i][1]=0;
+			}
+		}
+		return datosComplete;
+		
+	}
+}
+
+function pie3d(datos,altura,titulo,divId ) {
+	if (divId == undefined)
+		divId = 'pie3d_chart_div';
+  	 google.charts.load("current", {packages:["corechart"]});
+     google.charts.setOnLoadCallback(drawChartPie);
+
+ 
+	function drawChartPie() {
+
+		   var data = google.visualization.arrayToDataTable(datos);
+			var options = {
+			  title: titulo,
+			  is3D: true,
+			  height: altura
+			  };
+
+		  var chart = new google.visualization.PieChart(document.getElementById(divId));
+
+		  chart.draw(data, options);
+	}
+}
+
+function pie(datos,altura,titulo,divId) {
+	if (divId == undefined)
+		divId = 'pie_chart_div';
+  	 google.charts.load("current", {packages:["corechart"]});
+     google.charts.setOnLoadCallback(drawChartPie);
+
+ 
+	function drawChartPie() {
+
+		   var data = google.visualization.arrayToDataTable(datos);
+			var options = {
+			  title: titulo,
+			  is3D: false,
+			  height: altura
+			  };
+
+		  var chart = new google.visualization.PieChart(document.getElementById(divId));
+
+		  chart.draw(data, options);
+	}
+}
+

@@ -1,0 +1,42 @@
+
+a{
+    color:white;
+}
+p{
+    font-size: 18px;
+    text-shadow: 0 0 3px #000000;
+}
+
+table {
+    width: 100%;
+  }
+
+  
+.table-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.p-paginator-current {
+    margin-left: auto;
+}
+.table-header {
+    padding: 1rem;
+    text-align: left;
+    font-size: 1.5rem;
+}
+.paginator {
+    padding: 1rem;
+}
+
+.table-thead > tr > th {
+    text-align: left;
+}
+
+.table-tbody > tr > td {
+    cursor: auto;
+}
+
+.p-dropdown-label:not(.p-placeholder) {
+    text-transform: uppercase;
+}

@@ -1,0 +1,33 @@
+
+.nivel{
+    border-radius: 5px;
+    color:white;
+}
+label{
+    padding: 3px;
+}
+.paddingBottom{
+    padding-bottom: 30px;
+}
+
+input{
+    font-size: 16px;
+}
+
+input[disabled]{
+    color: black;
+}
+
+.carta{
+    width: 50%;
+    bottom: 20px;
+    height: auto;
+}
+
+.listas{
+    position: relative;
+    width: 50%;
+    left: 50%;
+    bottom: 750px;
+}
+

@@ -1,0 +1,254 @@
+<p-card>
+    <p-tabView>
+        <p-tabPanel header="Historial de Paseos">
+            <p-table #dt [value]="listaPaseosHistorial" [(selection)]="selectedPaseosHistorial" dataKey="id"
+                [rowHover]="true" [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[5,10,20]"
+                [paginator]="true"
+                currentPageReportTemplate="Mostrando de la {first} a la  {last} de {totalRecords} entradas"
+                [filterDelay]="0"
+                [globalFilterFields]="['id','fecha','hora','puntoRecogida','voluntario','beneficiario','vehiculo']">
+                <ng-template pTemplate="caption">
+                    <div class="table-header">
+                        Historial de Paseos
+                        <span class="p-input-icon-left">
+                            <i class="pi pi-search"></i>
+                            <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')"
+                                placeholder="Búsqueda General" />
+                        </span>
+                        <button pButton type="button" label="Nuevo Paseo" routerLink="/agregarPaseo" class="p-button-raised"></button>
+                    </div>
+                </ng-template>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th pSortableColumn="id" [ngStyle]="{'width':'60px'}">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                Id
+                                <p-sortIcon field="id"></p-sortIcon>
+                                <p-columnFilter type="text" field="id" display="menu" class="p-ml-auto">
+                                </p-columnFilter>
+                            </div>
+                        </th>
+                        <th pSortableColumn="fecha">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                Fecha
+                                <p-sortIcon field="fecha"></p-sortIcon>
+                                <p-columnFilter type="text" field="fecha" display="menu" class="p-ml-auto">
+                                </p-columnFilter>
+                            </div>
+                        </th>
+                        <th pSortableColumn="hora">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                Hora
+                                <p-sortIcon field="hora"></p-sortIcon>
+                                <p-columnFilter type="text" field="hora" display="menu" class="p-ml-auto">
+                                </p-columnFilter>
+                            </div>
+                        </th>
+                        <th pSortableColumn="puntoRecogida">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                Recogida Pasajero
+                                <p-sortIcon field="puntoRecogida"></p-sortIcon>
+                                <p-columnFilter type="text" field="puntoRecogida" display="menu" class="p-ml-auto">
+                                </p-columnFilter>
+                            </div>
+                        </th>
+                        <th pSortableColumn="puntoRecogida">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                Recogida Vehículo
+                                <p-sortIcon field="puntoRecogidaVehiculo"></p-sortIcon>
+                                <p-columnFilter type="text" field="puntoRecogidaVehiculo" display="menu" class="p-ml-auto">
+                                </p-columnFilter>
+                            </div>
+                        </th>
+                        <th pSortableColumn="voluntario">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                Voluntario
+                                <p-sortIcon field="voluntario"></p-sortIcon>
+                                <p-columnFilter type="text" field="voluntario" display="menu" class="p-ml-auto">
+                                </p-columnFilter>
+                            </div>
+                        </th>
+                        <th pSortableColumn="beneficiario">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                Beneficiario
+                                <p-sortIcon field="beneficiario"></p-sortIcon>
+                                <p-columnFilter type="text" field="beneficiario" display="menu" class="p-ml-auto">
+                                </p-columnFilter>
+                            </div>
+                        </th>
+                        <th pSortableColumn="vehiculo">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                Vehículo
+                                <p-sortIcon field="vehiculo"></p-sortIcon>
+                                <p-columnFilter type="text" field="vehiculo" display="menu" class="p-ml-auto">
+                                </p-columnFilter>
+                            </div>
+                        </th>
+                        <th *ngIf="isAdmin" [ngStyle]="{'width':'80px'}">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                Eliminar
+                            </div>
+                        </th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-paseo>
+                    <tr class="p-selectable-row">
+
+                        <td>{{paseo.id}}</td>
+                        <td>{{paseo.fecha}}</td>
+                        <td>{{paseo.hora}}</td>
+                        <td>{{paseo.recogida}}</td>
+                        <td>{{paseo.recogidaVehiculo}}</td>
+                        <td>{{paseo.usuarios_id}}</td>
+                        <td>{{paseo.beneficiario}}</td>
+                        <td>{{paseo.vehiculos_id}}</td>
+                        <td *ngIf="isAdmin">
+                            <button pButton type="button" class="p-button-danger" icon="fas fa-trash"
+                                (click)="eliminarPaseoHistorial(paseo)"></button>
+                        </td>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="emptymessage">
+                    <tr>
+                        <td colspan="8">No hay paseos disponibles.</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </p-tabPanel>
+        <p-tabPanel header="Próximos Paseos" [selected]="true">
+            <p-table #dt [value]="listaPaseos" [(selection)]="selectedPaseos" dataKey="id" [rowHover]="true" [rows]="10"
+                [showCurrentPageReport]="true" [rowsPerPageOptions]="[5,10,20]" [paginator]="true"
+                currentPageReportTemplate="[{first} - {last}] de {totalRecords} entradas" [filterDelay]="0"
+                [globalFilterFields]="['id','fecha','hora','puntoRecogida','voluntario','beneficiario','vehiculo']">
+                <ng-template pTemplate="caption">
+                    <div class="table-header">
+                        Próximos Paseos
+                        <span class="p-input-icon-left">
+                            <i class="pi pi-search"></i>
+                            <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')"
+                                placeholder="Búsqueda General" />
+                        </span>
+                        <button pButton type="button" label="Nuevo Paseo" routerLink="/agregarPaseo" class="p-button-raised"></button>
+                    </div>
+                </ng-template>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th pSortableColumn="id" [ngStyle]="{'width':'60px'}">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                Id
+                                <p-sortIcon field="id"></p-sortIcon>
+                                <p-columnFilter type="text" field="id" display="menu" class="p-ml-auto">
+                                </p-columnFilter>
+                            </div>
+                        </th>
+                        <th pSortableColumn="fecha">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                Fecha
+                                <p-sortIcon field="fecha"></p-sortIcon>
+                                <p-columnFilter type="text" field="fecha" display="menu" class="p-ml-auto">
+                                </p-columnFilter>
+                            </div>
+                        </th>
+                        <th pSortableColumn="hora">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                Hora
+                                <p-sortIcon field="hora"></p-sortIcon>
+                                <p-columnFilter type="text" field="hora" display="menu" class="p-ml-auto">
+                                </p-columnFilter>
+                            </div>
+                        </th>
+                        <th pSortableColumn="puntoRecogida">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                Recogida Pasajero
+                                <p-sortIcon field="puntoRecogida"></p-sortIcon>
+                                <p-columnFilter type="text" field="puntoRecogida" display="menu" class="p-ml-auto">
+                                </p-columnFilter>
+                            </div>
+                        </th>
+                        <th pSortableColumn="puntoRecogida">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                Recogida Vehículo
+                                <p-sortIcon field="puntoRecogidaVehiculo"></p-sortIcon>
+                                <p-columnFilter type="text" field="puntoRecogidaVehiculo" display="menu" class="p-ml-auto">
+                                </p-columnFilter>
+                            </div>
+                        </th>
+                        <th pSortableColumn="voluntario">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                Voluntario
+                                <p-sortIcon field="voluntario"></p-sortIcon>
+                                <p-columnFilter type="text" field="voluntario" display="menu" class="p-ml-auto">
+                                </p-columnFilter>
+                            </div>
+                        </th>
+                        <th pSortableColumn="beneficiario">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                Beneficiario
+                                <p-sortIcon field="beneficiario"></p-sortIcon>
+                                <p-columnFilter type="text" field="beneficiario" display="menu" class="p-ml-auto">
+                                </p-columnFilter>
+                            </div>
+                        </th>
+                        <th pSortableColumn="vehiculo">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                Vehículo
+                                <p-sortIcon field="vehiculo"></p-sortIcon>
+                                <p-columnFilter type="text" field="vehiculo" display="menu" class="p-ml-auto">
+                                </p-columnFilter>
+                            </div>
+                        </th>
+                        <th *ngIf="isAdmin" [ngStyle]="{'width':'80px'}">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                Eliminar
+                            </div>
+                        </th>
+                        <th [ngStyle]="{'width':'80px'}">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                Asistencia
+                            </div>
+                        </th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-paseo>
+                    <tr class="p-selectable-row">
+
+                        <td>{{paseo.id}}</td>
+                        <td>{{paseo.fecha}}</td>
+                        <td>{{paseo.hora}}</td>
+                        <td>{{paseo.recogida}}</td>
+                        <td>{{paseo.recogidaVehiculo}}</td>
+                        <td>{{paseo.usuarios_id}}</td>
+                        <td>{{paseo.beneficiario}}</td>
+                        <td>{{paseo.vehiculos_id}}</td>
+                        <td *ngIf="isAdmin">
+                            <button pButton type="button" class="p-button-danger" icon="fas fa-trash"
+                                (click)="eliminarPaseo(paseo)"></button>
+                        </td>
+                        <td *ngIf="isAdmin">
+                            <span style="font-size: 2em; color: orange;">
+                                <i *ngIf="paseo.asistencia == 0" class="fas fa-minus"></i>
+                            </span>
+                            <span style="font-size: 2em; color: green;">
+                                <i *ngIf="paseo.asistencia == 1" class="fas fa-check"></i>
+                            </span>
+                            <span style="font-size: 2em; color: red;">
+                                <i *ngIf="paseo.asistencia == 2" class="fas fa-times"></i>
+                            </span>
+                        </td>
+                        <td *ngIf="!isAdmin">
+                            <button pButton type="button" [ngClass]="{'p-button-danger' : paseo.asistencia == 2}" icon="fas fa-times"
+                                (click)="confirmarAsistenciaNo(paseo)"></button>
+                            <button pButton type="button" [ngClass]="{'p-button-success' : paseo.asistencia == 1}" icon="fas fa-check"
+                                (click)="confirmarAsistenciaSi(paseo)"></button>
+                        </td>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="emptymessage">
+                    <tr>
+                        <td colspan="8">No hay paseos disponibles.</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </p-tabPanel>
+    </p-tabView>
+</p-card>

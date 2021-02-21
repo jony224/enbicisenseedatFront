@@ -1,0 +1,46 @@
+
+    <p-card  class="contenido" styleClass="p-shadow-10">
+        <div class="logotip">
+            <img width="350" alt="Logo" src="../../assets/logoGran.png" />
+            
+        </div>
+        
+
+        <form [formGroup]="loginForm" (ngSubmit)="login()" novalidate>
+
+            <div class="p-grid">
+                <h2>Iniciar Sesión</h2>
+                <div class="p-col-12 p-lg-4">
+                    <label>Email</label>
+                    <div class="p-inputgroup" >
+                        <span class="p-inputgroup-addon"><i class="fas fa-at"></i></span>
+                        <input type="text" pInputText formControlName="email" placeholder="Email">
+                    </div>
+                </div>
+                <div class="p-col-12 p-lg-4">
+                    <label>Contraseña</label>
+                    <div class="p-inputgroup" >
+                        <span class="p-inputgroup-addon"><i class="fas fa-key"></i></span>
+                        <!--<input type="password" pPassword formControlName="password" placeholder="Contraseña">-->
+                        <input type="password" pInputText formControlName="password" placeholder="Contraseña">
+                    </div>
+                </div>
+                <div class="p-col-12 p-lg-4">
+                    <button pButton pRipple type="button" label="Registro" class="p-button-raised"
+                    routerLink="/registro" [style]="{'float':'left', 'margin':'5%'}"></button>
+                    <button pButton pRipple type="button" [disabled]="!loginForm.valid" label="Entrar" class="p-button-raised"
+                        (click)="login()" [style]="{'float':'right', 'margin':'5%'}" icon="fas fa-sign-in-alt"></button>
+                        
+                </div>
+ 
+            </div>
+            
+        </form>
+        <div class="p-text-left p-col-12 p-lg-4">
+            <label>
+                <a routerLink="/cambiarContrasena" [style]="{'width':'50%'}">¿Quieres cambiar tu contraseña?</a>
+            </label>
+        </div>
+
+    </p-card>
+    

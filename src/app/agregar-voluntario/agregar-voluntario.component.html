@@ -1,0 +1,45 @@
+<h1 class="paddingBottom">Agregar Voluntario</h1>
+<p-card header = "Rellena el formulario para agregar un voluntario.">
+        
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+
+        <div class="p-grid">
+            <div class="p-col-12 p-md-4">
+                <label>Nombre<span class="asterisco">*</span></label>
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon"><i class="fas fa-user"></i></span>
+                    <input type="text" pInputText formControlName="nombre" placeholder="Nombre">
+                </div>
+            </div>
+            <div class="p-col-12 p-md-4">
+                <label>Nivel<span class="asterisco">*</span></label>
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon"><i class="fas fa-star"></i></span>
+                    <p-dropdown [options]="listaNiveles" formControlName="nivel" placeholder="Selecciona un nivel"
+                        optionLabel="nombre" [showClear]="true"></p-dropdown>
+                </div>
+            </div>
+            <div class="p-col-12 p-md-4">
+                <label>Email<span class="asterisco">*</span></label>
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon"><i class="fas fa-at"></i></span>
+                    <input type="text" pInputText formControlName="email" placeholder="Email">
+                </div>
+            </div>
+            <div class="p-col-12 p-md-4">
+                <label>Teléfono<span class="asterisco">*</span></label>
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon"><i class="fas fa-phone-alt"></i></span>
+                    <input type="text" pInputText formControlName="telefono" placeholder="Teléfono">
+                </div>
+            </div>
+            
+            <div class="p-col-12 p-md-4">
+                <button pButton type="button" [disabled]="!signupForm.valid" label="Agregar" class="p-button-raised"
+                    (click)="onSubmit()"></button>
+            </div>
+
+        </div>
+
+    </form>
+</p-card>

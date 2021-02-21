@@ -1,0 +1,100 @@
+<!--<nav class="navbar navbar-expand-lg" style="background-color: #424242;">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a routerLink="#" class="navbar-brand">En Bici Sense Edat</a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li *ngIf="isAuthenticated && isAdmin"><a routerLink="/paseos">Paseos</a></li>
+                
+                <li *ngIf="isAuthenticated && isAdmin" class="nav-item dropdown" ngbDropdown>
+                    <a role="button" ngbDropdownToggle  type="button" class="nav-link dropdown-toggle colaboradores" >
+                    Colaboradores</a>
+                    <ul ngbDropdownMenu role="menu" class = "custom">
+                        <li>
+                            <a ngbDropdownItem class="desplegable"  routerLink="/coordinadores">Coordinadores</a>
+                        </li>
+                        <li>
+                            <a ngbDropdownItem class="desplegable"  routerLink="/voluntarios">Voluntarios</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                <li *ngIf="isAuthenticated && isAdmin"><a routerLink="/beneficiarios">Beneficiarios</a></li>
+                <li *ngIf="isAuthenticated && isAdmin"><a routerLink="/entidades">Entidades</a></li>
+                <li *ngIf="isAuthenticated && isAdmin"><a routerLink="/vehiculos">Vehículos</a></li>
+                <li *ngIf="isAuthenticated"><a (click)="logout()">Log Out</a></li>
+                <li *ngIf="!isAuthenticated"><a routerLink="/login">Login</a></li>
+                <li *ngIf="!isAuthenticated"><a routerLink="/registro">Registro</a></li>
+                
+            </ul>
+        </div>
+    </div>
+</nav>
+<p-breadcrumb [model]="menuItems" class="custom-bread"></p-breadcrumb>
+<p-tieredMenu  [model]="menuItems" [style]="{'font-size': '20px', 'width': '200px'}"></p-tieredMenu >-->
+    <p-confirmDialog [style]="{'width': '50%', 'font-size': '16px'}" acceptLabel='Sí' [baseZIndex]="10000" header="Advertencia"
+  icon="pi pi-exclamation-triangle"></p-confirmDialog>
+    <div class="custom-sidenav" (mouseenter)="expand()" (mouseleave)="colapse()" [@hover]="{value: state}"
+    [@.disabled]="fixed">
+    <div id="logotip">
+        <img width="48" alt="Logo" src="../../assets/logo.png" />
+    </div>
+    <div id="menu">
+        <ul>
+            <li *ngIf="isAuthenticated" routerLink="./paseos" routerLinkActive="active">
+                <a>
+                    <i class="fas fa-route" style="font-size: 18px"></i>
+                    <span>Paseos</span>
+                </a>
+            </li>
+            <li *ngIf="isAuthenticated && isAdmin" routerLink="./coordinadores" routerLinkActive="active">
+                <a>
+                    <i class="fas fa-user-tie" style="font-size: 18px"></i>
+                    <span>Coordinadores</span>
+                </a>
+            </li>
+            <li *ngIf="isAuthenticated && isAdmin" routerLink="./voluntarios" routerLinkActive="active">
+                <a>
+                    <i class="fas fa-hands-helping" style="font-size: 18px"></i>
+                    <span>Voluntarios</span>
+                </a>
+            </li>
+            <li *ngIf="isAuthenticated && isAdmin" routerLink="./entidades" routerLinkActive="active">
+                <a>
+                    <i class="fas fa-building" style="font-size: 18px"></i>
+                    <span>Entidades</span>
+                </a>
+            </li>
+            <li *ngIf="isAuthenticated && isAdmin" routerLink="./vehiculos" routerLinkActive="active">
+                <a>
+                    <i class="fas fa-bicycle" style="font-size: 18px"></i>
+                    <span>Vehiculos</span>
+                </a>
+            </li>
+            <li *ngIf="isAuthenticated && isAdmin" routerLink="./configuracion" routerLinkActive="active">
+                <a>
+                    <i class="fas fa-cog" style="font-size: 18px"></i>
+                    <span>Configuración</span>
+                </a>
+            </li>
+            <li *ngIf="isAuthenticated" (click) = "logout()" routerLinkActive="active">
+                <a>
+                    <i class="fas fa-power-off" style="font-size: 18px"></i>
+                    <span>Cerrar Sesión</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div id="footer">
+        <button pButton *ngIf="fixed" class="p-button-lg" type="button" icon="fas fa-lock" style="font-size: 16px"
+            class="p-button-rounded p-button-secondary p-button-text" pTooltip="fixed ? 'Expandir' : 'Colapsar'"
+            (click)="toggle()">
+        </button>
+        <button pButton *ngIf="!fixed" class="p-button-lg" type="button" icon="fas fa-unlock" style="font-size: 16px"
+            class="p-button-rounded p-button-secondary p-button-text" pTooltip="fixed ? 'Expandir' : 'Colapsar'"
+            (click)="toggle()"> 
+        </button>
+    </div>
+</div>

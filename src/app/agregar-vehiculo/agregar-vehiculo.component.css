@@ -1,0 +1,16 @@
+
+.asterisco{
+    color: red;
+}
+
+:host ::ng-deep .p-dropdown {
+    width: 20rem;
+}
+
+.agregarVehiculo{
+    background-color: white;
+}
+
+.paddingBottom{
+    padding-bottom: 30px;
+}

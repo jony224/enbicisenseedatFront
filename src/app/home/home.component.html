@@ -1,0 +1,13 @@
+<body>
+    <app-header *ngIf="isAuthenticated"></app-header>
+    <div class="breadCrumb">
+    <app-breadcrumb *ngIf="isAuthenticated"></app-breadcrumb>
+    </div>
+    <div class="container">
+        
+        <p-toast position="bottom-left"></p-toast>
+        
+        <router-outlet></router-outlet>
+        
+    </div>
+</body>

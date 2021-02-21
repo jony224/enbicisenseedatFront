@@ -1,0 +1,69 @@
+<!--<h1>Registro</h1>
+<form [formGroup]="signupForm" (ngSubmit)="registrarUsuario()" novalidate>
+    <mat-form-field appearance="fill">
+        <mat-label>Nombre</mat-label>
+        <input matInput placeholder="Nombre" formControlName="name" name="u">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Email" formControlName="email" name="p">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" placeholder="Contraseña" formControlName="password">
+    </mat-form-field>
+    <button color="accent" [disabled]="!signupForm.valid" mat-raised-button type="submit">
+        <span>
+            Registro
+        </span>
+    </button>
+</form>-->
+<p-card  class="contenido" styleClass="p-shadow-10">
+    <div class="logotip">
+        <img width="350" alt="Logo" src="../../assets/logoGran.png" />
+        
+    </div>
+    
+
+    <form [formGroup]="signupForm" (ngSubmit)="registrarUsuario()" novalidate>
+
+        <div class="p-grid">
+            <h2>Registrarse</h2>
+            <div class="p-col-12 p-lg-4">
+                <label>Nombre</label>
+                <div class="p-inputgroup" >
+                    <span class="p-inputgroup-addon"><i class="fas fa-user"></i></span>
+                    <input type="text" pInputText formControlName="name" placeholder="Nombre">
+                </div>
+            </div>
+            <div class="p-col-12 p-lg-4">
+                <label>Email</label>
+                <div class="p-inputgroup" >
+                    <span class="p-inputgroup-addon"><i class="fas fa-at"></i></span>
+                    <input type="text" pInputText formControlName="email" placeholder="Email">
+                </div>
+            </div>
+            <div class="p-col-12 p-lg-4">
+                <label>Contraseña</label>
+                <div class="p-inputgroup" >
+                    <span class="p-inputgroup-addon"><i class="fas fa-key"></i></span>
+                    <input type="password" pPassword formControlName="password" placeholder="Contraseña">
+                </div>
+            </div>
+            <div class="p-col-12 p-lg-4">
+                <button pButton pRipple type="button" label="Login" class="p-button-raised"
+                routerLink="/login" [style]="{'float':'left', 'margin':'5%'}"></button>
+                <button pButton pRipple type="button" [disabled]="!signupForm.valid" label="Registrarse" class="p-button-raised"
+                    (click)="registrarUsuario()" [style]="{'float':'right', 'margin':'5%'}" icon="fas fa-sign-in-alt"></button>
+                
+            </div>
+
+        </div>
+    </form>
+    <div class="p-text-left p-col-12 p-lg-4">
+        <label>
+            <a routerLink="/cambiarContrasena" [style]="{'width':'50%'}">¿Quieres cambiar tu contraseña?</a>
+        </label>
+    </div>
+</p-card>
+
